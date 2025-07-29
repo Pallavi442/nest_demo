@@ -2,6 +2,8 @@ import { CanActivate, ExecutionContext, Injectable } from '@nestjs/common';
 import { Observable } from 'rxjs';
 
 @Injectable()
+
+//Guard code 
 export class FirewallGuard implements CanActivate {
   canActivate(
     context: ExecutionContext,
