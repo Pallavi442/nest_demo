@@ -15,21 +15,15 @@ export class UserController {
         return this.userService.getAllUsers()
     }
 
-    @Get(':id')
-    getUser(@Param('id',ParseIntPipe) id:number){
-      
-         try {
-              return this.userService.getUser(id)
-        }
-        catch (error) {
-            throw new NotFoundException(error.message)
-        }
-    }
-
+   
+@Get(':id')
+getUser(@Param('id') id: string) {
+  return this.userService.getUser(id);
+}
 
     //Post Request
     @Post()
-     @UseGuards(FirewallGuard)
+    //  @UseGuards(FirewallGuard)
     addUser(@Body(new ValidationPipe({transform:true})) user:UserDto){
         return this.userService.addUser(user)
     }
